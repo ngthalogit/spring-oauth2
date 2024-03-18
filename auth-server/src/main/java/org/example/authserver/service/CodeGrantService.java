@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CodeGrantService implements GrantService{
     @Override
-    public GrantAuthorizationResponse getAuthorizationResponse(String state, String scope) {
+    public GrantAuthorizationResponse getGrantAuthorizationResponse(String state, String scope) {
         GrantAuthorizationResponse response = new GrantAuthorizationResponse();
         response.setState(state);
         response.setCode(JwtHelper.generateJwtToken(scope));

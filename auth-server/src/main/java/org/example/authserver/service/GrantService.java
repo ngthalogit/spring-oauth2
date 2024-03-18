@@ -4,6 +4,6 @@ import org.example.authserver.model.AccessTokenResponse;
 import org.example.authserver.model.GrantAuthorizationResponse;
 
 public interface GrantService {
-    GrantAuthorizationResponse getAuthorizationResponse(String state, String scope);
+    GrantAuthorizationResponse getGrantAuthorizationResponse(String state, String scope);
 //    AccessTokenResponse authorize(AuthorizationUrl request);
 }

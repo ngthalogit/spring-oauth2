@@ -43,7 +43,7 @@ public class AuthorizationController {
         if (Objects.isNull(clientService.findByClientId(clientId))) {
             throw new NotFoundClientIdException(clientId);
         }
-        return ResponseEntity.ok(grantServiceFactory.getGrantService(responseType).getAuthorizationResponse(state, scope));
+        return ResponseEntity.ok(grantServiceFactory.getGrantService(responseType).getGrantAuthorizationResponse(state, scope));
     }
     @PostMapping("/token")
     public ResponseEntity<AccessTokenResponse> token() {

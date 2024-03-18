@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ImplicitGrantService implements GrantService{
     @Override
-    public GrantAuthorizationResponse getAuthorizationResponse(String state, String scope) {
+    public GrantAuthorizationResponse getGrantAuthorizationResponse(String state, String scope) {
         return null;
     }
 //    @Override
