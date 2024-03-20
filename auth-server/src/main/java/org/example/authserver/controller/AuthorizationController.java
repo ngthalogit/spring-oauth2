@@ -4,22 +4,18 @@ import org.example.authserver.exception.NotFoundClientIdException;
 import org.example.authserver.exception.NotFoundResponseTypeException;
 import org.example.authserver.model.AccessTokenResponse;
 import org.example.authserver.model.GrantAuthorizationResponse;
-import org.example.authserver.repository.ClientRepository;
 import org.example.authserver.service.AuthenticationService;
 import org.example.authserver.service.ClientService;
-import org.example.authserver.service.GrantService;
 import org.example.authserver.service.GrantServiceFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/apis/grant-type/")
 public class AuthorizationController {
     private final ClientService clientService;
     private final AuthenticationService authenticationService;
@@ -31,7 +27,7 @@ public class AuthorizationController {
         this.grantServiceFactory = grantServiceFactory;
     }
 
-    @GetMapping("/authorize")
+    @GetMapping("/authorization")
     public ResponseEntity<GrantAuthorizationResponse> authorize(@RequestParam("client_id") String clientId,
                                                                 @RequestParam("response_type") String responseType,
                                                                 @RequestParam("redirect_uri") String redirectUri,
@@ -45,7 +41,7 @@ public class AuthorizationController {
         }
         return ResponseEntity.ok(grantServiceFactory.getGrantService(responseType).getGrantAuthorizationResponse(state, scope));
     }
-    @PostMapping("/token")
+    @PostMapping("/access-token")
     public ResponseEntity<AccessTokenResponse> token() {
 
         return null;

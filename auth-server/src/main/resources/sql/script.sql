@@ -30,7 +30,8 @@ CREATE TABLE authorities
 CREATE UNIQUE INDEX ix_auth_username ON authorities (username, authority);
 
 
-INSERT INTO users(username, password, enabled) VALUES ('admin', '$2a$12$K9Q821FTeFy1bRX1Mggib.PdYW8EAaIdX3L28zQiCw9LdEXj/dTtK', 1);
+INSERT INTO users(username, password, enabled) VALUES ('admin', '$2a$12$P/.TO8Gkg4qUERE286P1pO.7.YdB3xLszzL4u2RHaM3uVIVRd7ARi', 1);
 INSERT INTO authorities(username, authority) VALUES ('admin', 'ADMIN');
+
 
 

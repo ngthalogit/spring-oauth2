@@ -6,7 +6,7 @@ import org.example.authserver.tools.JwtHelper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CodeGrantService implements GrantService{
+public class CodeGrantService implements GrantService {
     @Override
     public GrantAuthorizationResponse getGrantAuthorizationResponse(String state, String scope) {
         GrantAuthorizationResponse response = new GrantAuthorizationResponse();

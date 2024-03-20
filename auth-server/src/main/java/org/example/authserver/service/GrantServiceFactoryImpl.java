@@ -1,6 +1,5 @@
 package org.example.authserver.service;
 
-import org.example.authserver.constant.GrantType;
 import org.example.authserver.exception.NotFoundResponseTypeException;
 import org.springframework.stereotype.Service;
 

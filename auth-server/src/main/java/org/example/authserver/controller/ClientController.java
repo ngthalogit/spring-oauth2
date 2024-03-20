@@ -5,13 +5,14 @@ import org.example.authserver.service.ClientService;
 import org.example.authserver.tools.ClientSecretGenerator;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/clients")
 public class ClientController {
     private final ClientService clientService;
 
@@ -20,7 +21,7 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @GetMapping("/registry")
+    @PutMapping
     public ResponseEntity<Client> register() {
         String clientId = ClientSecretGenerator.random(25);
         String clientSecret = ClientSecretGenerator.random(30);
@@ -30,15 +31,4 @@ public class ClientController {
         Client client = clientService.registerClient(clientId, clientSecret);
         return ResponseEntity.ok(client);
     }
-
-    @GetMapping("/clear")
-    public ResponseEntity<String> clear() {
-        long clear = clientService.clear();
-        if (clear > 0) {
-            return ResponseEntity.ok("Successfully cleared %d clients".formatted(clear));
-        }
-        return ResponseEntity.ok("There is no client need to be cleared");
-    }
-
-
 }

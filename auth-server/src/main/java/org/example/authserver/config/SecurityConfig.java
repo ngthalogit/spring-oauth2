@@ -24,9 +24,12 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(
                         (authz) -> authz
-                                .requestMatchers("user/**", "client/registry", "/api/authorize/**")
+                                .requestMatchers(
+                                        "/users",
+                                        "/clients",
+                                        "/apis/grant-type/**"
+                                )
                                 .permitAll()
-                                .requestMatchers("/client/clear").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .cors(AbstractHttpConfigurer::disable)
@@ -34,7 +37,6 @@ public class SecurityConfig {
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
-
     }
 
     @Bean

@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
@@ -17,7 +17,7 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping("/register")
+    @PutMapping
     public ResponseEntity<String> register(@RequestBody UserRegistry userRegistry) {
 
         userRegistry.setPassword(passwordEncoder.encode(userRegistry.getPassword()));
