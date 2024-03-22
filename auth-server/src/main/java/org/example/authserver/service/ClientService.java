@@ -1,5 +1,7 @@
 package org.example.authserver.service;
 
+import org.example.authserver.exception.ClientAuthenticationException;
+import org.example.authserver.exception.NotFoundClientIdException;
 import org.example.authserver.model.Client;
 
 public interface ClientService {
@@ -7,5 +9,5 @@ public interface ClientService {
 
     Client registerClient(String clientId, String clientSecret);
 
-    long clear();
+    void authenticate(Client client) throws ClientAuthenticationException, NotFoundClientIdException;
 }

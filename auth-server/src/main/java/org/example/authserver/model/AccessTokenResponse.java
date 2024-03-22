@@ -11,15 +11,15 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AccessTokenResponse {
     private String tokenType;
-    private String expires_in;
-    private String access_token;
+    private String expiresIn;
+    private String accessToken;
     private String refreshToken;
     private String scope;
 
     private AccessTokenResponse(Builder builder) {
         setTokenType(builder.tokenType);
-        setExpires_in(builder.expires_in);
-        setAccess_token(builder.access_token);
+        setExpiresIn(builder.expiresIn);
+        setAccessToken(builder.accessToken);
         setRefreshToken(builder.refreshToken);
         setScope(builder.scope);
     }
@@ -27,8 +27,8 @@ public class AccessTokenResponse {
 
     public static final class Builder {
         private String tokenType;
-        private String expires_in;
-        private String access_token;
+        private String expiresIn;
+        private String accessToken;
         private String refreshToken;
         private String scope;
 
@@ -40,13 +40,13 @@ public class AccessTokenResponse {
             return this;
         }
 
-        public Builder withExpires_in(String val) {
-            expires_in = val;
+        public Builder withExpiresIn(String val) {
+            expiresIn = val;
             return this;
         }
 
-        public Builder withAccess_token(String val) {
-            access_token = val;
+        public Builder withAccessToken(String val) {
+            accessToken = val;
             return this;
         }
 

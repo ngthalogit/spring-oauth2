@@ -1,7 +1,7 @@
 package org.example.authserver.constant;
 
 public enum GrantType {
-    CODE("code"),
+    AUTHORIZATION_CODE("authorization_code"),
     TOKEN("token"),
     UNKNOWN("unknown");
 
@@ -12,9 +12,9 @@ public enum GrantType {
     }
 
 
-    public static GrantType from(String code) {
+    public static GrantType from(String type) {
         for (GrantType grantType : GrantType.values()) {
-            if (grantType.type.equalsIgnoreCase(code)) {
+            if (grantType.type.equalsIgnoreCase(type)) {
                 return grantType;
             }
         }
